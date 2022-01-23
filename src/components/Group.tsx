@@ -1,6 +1,6 @@
 import { Card, Image, Text, Badge, Button, Group, useMantineTheme } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import { Groups } from '../modules/User/Groups';
+
 
 export const GroupCard = () => {
     const theme = useMantineTheme();

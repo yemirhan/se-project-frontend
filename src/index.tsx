@@ -4,16 +4,22 @@ import App from './App';
 import './index.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import configureStore from './redux/configureStore';
+import { NotificationsProvider } from '@mantine/notifications';
+import { BrowserRouter } from 'react-router-dom';
 
 const queryClient = new QueryClient()
+
+const store = configureStore()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
+      <NotificationsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </NotificationsProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
